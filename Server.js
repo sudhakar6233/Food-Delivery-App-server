@@ -8,12 +8,19 @@ const app = express();
 const PORT = 3001;
 
 // ✅ Middleware
+const cors = require("cors");
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://sudhakar6233.github.io",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, 
   })
 );
+
 app.use(express.json());
 
 // ✅ MongoDB connection
